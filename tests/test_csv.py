@@ -1,12 +1,20 @@
-import csv,os
+import csv, os
+from conftest import RESOURCES_DIR
+
 # TODO оформить в тест, добавить ассерты и использовать универсальный путь
 
-with open('resources/new_csv.csv', 'w') as csv_file:
-    csvwriter = csv.writer(csv_file, delimiter=';')
-    csvwriter.writerow(['Bonny', 'Born', 'Peter'])
-    csvwriter.writerow(['Alex', 'Serj', 'Yana'])
+def test_csv():
+    csv_file_path = os.path.join(RESOURCES_DIR, 'new_csv.csv')
+    with open(csv_file_path, 'w') as csv_file:
+        csvwriter = csv.writer(csv_file, delimiter=';')
+        csvwriter.writerow(['Bonny', 'Born', 'Peter'])
+        csvwriter.writerow(['Alex', 'Serj', 'Yana'])
 
-with open('resources/new_csv.csv') as csv_file:
-    csvreader = csv.reader(csv_file, delimiter=';')
-    for row in csvreader:
-        print(row)
+    with open(csv_file_path) as csv_file:
+        rows = []
+        csvreader = csv.reader(csv_file, delimiter=';')
+        for row in csvreader:
+            rows.append(row)
+
+    assert rows[0] == ['Bonny', 'Born', 'Peter']
+    assert rows[1] == ['Alex', 'Serj', 'Yana']
