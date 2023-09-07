@@ -11,10 +11,10 @@ def test_csv():
         csvwriter.writerow(['Alex', 'Serj', 'Yana'])
 
     with open(csv_file_path) as csv_file:
-        rows = []
+        row = []
         csvreader = csv.reader(csv_file, delimiter=';')
         for row in csvreader:
-            rows.append(row)
+            row.append()
 
-    assert rows[0] == ['Bonny', 'Born', 'Peter']
-    assert rows[1] == ['Alex', 'Serj', 'Yana']
+    assert row[0] == ['Bonny', 'Born', 'Peter']
+    assert row[1] == ['Alex', 'Serj', 'Yana']
