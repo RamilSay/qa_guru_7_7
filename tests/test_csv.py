@@ -1,4 +1,4 @@
-import csv
+import csv,os
 # TODO оформить в тест, добавить ассерты и использовать универсальный путь
 
 with open('resources/new_csv.csv', 'w') as csv_file:
