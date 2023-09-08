@@ -1,5 +1,5 @@
 import pypdf, os
-from conftest import RESOURCES_DIR
+from tests.conftest import RESOURCES_DIR
 # TODO оформить в тест, добавить ассерты и использовать универсальный путь
 
 def test_pdf():
