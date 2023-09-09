@@ -8,4 +8,4 @@ def test_xlsx():
     sheet = workbook.active
     print(sheet.cell(row=3, column=2).value)
 
-    #assert
+    assert sheet.cell(row=3, column=2).value == "Mara"
